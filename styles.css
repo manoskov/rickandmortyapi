@@ -1,8 +1,7 @@
 @font-face {
-    font-family: 'Get Shwifty'; /* Гарнитура шрифта */
+    font-family: 'Get Shwifty';
     src: url(font/get_schwifty.ttf), format('ttf');
     src: local('Get Shwifty'), url(font/get_schwifty.ttf);
-    font-weight: 400;
    } 
 
 * {
@@ -12,8 +11,7 @@
     text-align: center;
 }
 
-html, body {
-    height: 100%;
+body {
     background-color: #A9C840;
     color: white;
 }
@@ -22,16 +20,11 @@ html, body {
     max-width: 50%;
 }
 
-#main {
-}
-
-
 #generatebutton {
     font-size: 2em;
     padding: 0.5em;
     border-radius: 15px;
     font-family: 'Get Shwifty';
-    color: white;
     background-color: #40B5CB;
 }
 
@@ -43,17 +36,9 @@ html, body {
     display: none;
 }
 
-.char {
-
-}
-
 #charname {
     font-size: 2em;
     text-transform: uppercase;
-}
-
-#charimage {
-
 }
 
 #charnumber {

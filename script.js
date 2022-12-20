@@ -1,35 +1,27 @@
 /* 
-
 Rick and Morty API documentation
 https://rickandmortyapi.com/documentation/#character-schema
+https://rickandmortyapi.com/api/character .info.count
 
  */
+
+// Constants //
+
+const generatebutton = document.querySelector('#generatebutton');
+const charinfo = document.querySelector('#charinfo'); // Block displaying Character Info. display: none by default
 const charname = document.querySelector('#charname');
 const charimage = document.querySelector('#charimage');
-const generatebutton = document.querySelector('#generatebutton');
 const charstatus = document.querySelector('#status');
 const species = document.querySelector('#species');
 const gender = document.querySelector('#gender');
 const origin = document.querySelector('#origin');
-const charinfo = document.querySelector('#charinfo');
-const charnumber = document.querySelector('#charnumber');
+
+const charnumber = document.querySelector('#charnumber'); 
 const charnumbertext = document.querySelector('#charnumbertext');
 
-/*
-function displayName() {
-const myName = inputField.value;
-responseField.innerHTML = myName; 
-}
-
-submit.addEventListener("click", () => {
-  displayName();
-});
-
-*/
-
-async function getCharacter() {
-  let randomNumber = Math.ceil(Math.random()*826);
-  try {const response = await fetch('https://rickandmortyapi.com/api/character/' + randomNumber);
+// getCharacter() function gets character's name, picture and info via API
+async function getCharacter(number) {
+  try {const response = await fetch('https://rickandmortyapi.com/api/character/' + number);
   if (response.ok) {
     charinfo.style.display = 'block';
     const jsonResp = await response.json();
@@ -39,8 +31,8 @@ async function getCharacter() {
     species.innerHTML = await jsonResp.species;
     gender.innerHTML = await jsonResp.gender;
     origin.innerHTML = await jsonResp.origin.name;
-    charnumber.value = randomNumber;
-    charnumbertext.innerHTML = charnumber.value;
+    charnumber.value = number;
+    charnumbertext.innerHTML = number;
   }
   }
     catch(err) {
@@ -48,30 +40,13 @@ async function getCharacter() {
     } 
 };
 
+// Button that generates random number to get random character via API
 generatebutton.addEventListener("click", () => {
-  getCharacter();
-});
+  let rndNum = Math.ceil(Math.random()*826);
+  getCharacter(rndNum);
+})
 
-async function getCharacterByNumber() {
-  let newNumber = charnumber.value;
-  try {const response = await fetch('https://rickandmortyapi.com/api/character/' + newNumber);
-  if (response.ok) {
-    charinfo.style.display = 'block';
-    const jsonResp = await response.json();
-    charname.innerHTML = await jsonResp.name;
-    charimage.src = await jsonResp.image;
-    charstatus.innerHTML = await jsonResp.status;
-    species.innerHTML = await jsonResp.species;
-    gender.innerHTML = await jsonResp.gender;
-    origin.innerHTML = await jsonResp.origin.name;
-    charnumbertext.innerHTML = charnumber.value;
-  }
-  }
-    catch(err) {
-      alert(err);
-    } 
-}
-
+// Range input gets character by number
 charnumber.addEventListener("change", () => {
-  getCharacterByNumber()
+  getCharacter(charnumber.value);
 })
