@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Get Shwifty'; /* Гарнитура шрифта */
+    src: url(font/get_schwifty.ttf), format('ttf');
+    src: local('Get Shwifty'), url(font/get_schwifty.ttf);
+    font-weight: 400;
+   } 
+
+* {
+    margin: 5px;
+    font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    background-color: #A9C840;
+    color: white;
+}
+
+#mainlogo {
+    max-width: 50%;
+}
+
+#main {
+}
+
+
+#generatebutton {
+    font-size: 2em;
+    padding: 0.5em;
+    border-radius: 15px;
+    font-family: 'Get Shwifty';
+    color: white;
+    background-color: #40B5CB;
+}
+
+#generatebutton:hover {
+    background-color: #A9C840;
+}
+
+#charinfo {
+    display: none;
+}
+
+.char {
+
+}
+
+#charname {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+#charimage {
+
+}
+
+#charnumber {
+    width: 70%;
+}
+
+footer a {
+    font-family: 'Get Shwifty';
+    font-size: smaller;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-decoration: none;
+    color: white;
+}
